@@ -5,6 +5,7 @@ import { CardContainer, CardBody, CardItem } from "@/components/global/3d-card"
 import { Button } from "@/components/ui/button"
 import { products } from "@/lib/constant"
 import { CheckIcon } from "lucide-react"
+import Link from "next/link"
 
 const steps = [
   {
@@ -72,14 +73,16 @@ export default function Page() {
           <ContainerScroll
             titleComponent={
               <div className="flex flex-col items-center">
-                <Button
-                  size={"lg"}
-                  className="group mb-8 flex w-full items-center justify-center gap-4 rounded-full border-t-2 border-[#4D4D4D] bg-[#1F1F1F] p-8 text-2xl transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-neutral-500 sm:w-fit md:mb-0"
-                >
-                  <span className="goup-hover:to-black bg-gradient-to-r from-neutral-500 to-neutral-600 bg-clip-text font-sans text-transparent group-hover:bg-gradient-to-r group-hover:from-black md:text-center">
-                    Start For Free Today
-                  </span>
-                </Button>
+                <Link href="/sign-in">
+                  <Button
+                    size={"lg"}
+                    className="group mb-8 flex w-full items-center justify-center gap-4 rounded-full border-t-2 border-[#4D4D4D] bg-[#1F1F1F] p-8 text-2xl transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-neutral-500 sm:w-fit md:mb-0"
+                  >
+                    <span className="goup-hover:to-black bg-gradient-to-r from-neutral-500 to-neutral-600 bg-clip-text font-sans text-transparent group-hover:bg-gradient-to-r group-hover:from-black md:text-center">
+                      Start For Free Today
+                    </span>
+                  </Button>
+                </Link>
                 <h1 className="bg-gradient-to-b from-white to-neutral-600 bg-clip-text font-sans text-5xl font-bold text-transparent md:text-8xl">
                   Automate Your Work With Flowly
                 </h1>
@@ -202,16 +205,17 @@ export default function Page() {
                   </ul>
                 </CardItem>
 
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className={`mt-2 w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors ${
-                    plan.highlighted
-                      ? "bg-white text-black hover:bg-neutral-200"
-                      : "border border-white/20 text-white hover:bg-white/10"
-                  }`}
-                >
-                  Get Started
+                <CardItem translateZ={20} as="div" className="w-full">
+                  <Link
+                    href="/sign-in"
+                    className={`mt-2 block w-full rounded-xl px-4 py-2.5 text-center text-sm font-semibold transition-colors ${
+                      plan.highlighted
+                        ? "bg-white text-black hover:bg-neutral-200"
+                        : "border border-white/20 text-white hover:bg-white/10"
+                    }`}
+                  >
+                    Get Started
+                  </Link>
                 </CardItem>
               </CardBody>
             </CardContainer>
